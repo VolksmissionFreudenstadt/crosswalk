@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="749.35034" height="724.3125" id="svg2" version="1.1" inkscape:version="0.48.2 r9819" sodipodi:docname="seal.svg" inkscape:export-filename="C:\Users\user\Documents\img\fotoVectors\seal.png" inkscape:export-xdpi="90" inkscape:export-ydpi="90">
+  <defs id="defs4">
+    <filter id="filter2987" inkscape:label="Inner Shadow" inkscape:menu="Shadows and Glows" inkscape:menu-tooltip="Adds a colorizable drop shadow inside" color-interpolation-filters="sRGB">
+      <feGaussianBlur id="feGaussianBlur2989" stdDeviation="4" result="result8"/>
+      <feOffset id="feOffset2991" dx="4" dy="4" result="result11"/>
+      <feComposite id="feComposite2993" in2="result11" result="result6" in="SourceGraphic" operator="in"/>
+      <feFlood id="feFlood2995" result="result10" in="result6" flood-opacity="1" flood-color="rgb(0,0,0)"/>
+      <feBlend id="feBlend2997" in2="result10" mode="normal" in="result6" result="result12"/>
+      <feComposite id="feComposite2999" in2="SourceGraphic" result="result2" operator="in"/>
+    </filter>
+    <filter id="filter3007" inkscape:label="Drop shadow" inkscape:menu="Bevels" inkscape:menu-tooltip="Basic specular bevel to use for building textures" color-interpolation-filters="sRGB" width="1.5" height="1.5" x="-0.25" y="-0.25">
+      <feGaussianBlur id="feGaussianBlur3009" stdDeviation="20" in="SourceGraphic" result="result0"/>
+      <feDiffuseLighting id="feDiffuseLighting3011" lighting-color="#ffffff" diffuseConstant="0.89999998" surfaceScale="20" result="result5">
+        <feDistantLight id="feDistantLight3013" elevation="50" azimuth="235"/>
+      </feDiffuseLighting>
+      <feComposite id="feComposite3015" in2="SourceGraphic" k1="1.4" in="result5" result="fbSourceGraphic" operator="arithmetic" k2="0" k3="0" k4="0"/>
+      <feGaussianBlur id="feGaussianBlur3017" result="result0" in="fbSourceGraphic" stdDeviation="12"/>
+      <feSpecularLighting id="feSpecularLighting3019" specularExponent="40" specularConstant="1.29999995" surfaceScale="20" lighting-color="#ffffff" result="result1" in="result0">
+        <feDistantLight id="feDistantLight3021" azimuth="235" elevation="50"/>
+      </feSpecularLighting>
+      <feComposite id="feComposite3023" in2="result1" k3="1" k2="1" operator="arithmetic" result="result4" in="fbSourceGraphic" k1="0" k4="0"/>
+      <feComposite id="feComposite3025" in2="SourceGraphic" operator="in" result="fbSourceGraphic" in="result4"/>
+      <feColorMatrix result="fbSourceGraphicAlpha" in="fbSourceGraphic" values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0" id="feColorMatrix3066"/>
+      <feGaussianBlur id="feGaussianBlur3068" in="fbSourceGraphicAlpha" stdDeviation="7" result="blur"/>
+      <feColorMatrix id="feColorMatrix3070" result="bluralpha" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.7 0 "/>
+      <feOffset id="feOffset3072" in="bluralpha" dx="3" dy="3" result="offsetBlur"/>
+      <feMerge id="feMerge3074">
+        <feMergeNode id="feMergeNode3076" in="offsetBlur"/>
+        <feMergeNode id="feMergeNode3078" in="fbSourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="filter3032" inkscape:label="Drop shadow" inkscape:menu="Bevels" inkscape:menu-tooltip="Basic specular bevel to use for building textures" color-interpolation-filters="sRGB" width="1.5" height="1.5" x="-0.25" y="-0.25">
+      <feGaussianBlur id="feGaussianBlur3034" stdDeviation="9" in="SourceGraphic" result="result0"/>
+      <feDiffuseLighting id="feDiffuseLighting3036" lighting-color="#ffffff" diffuseConstant="0.89999998" surfaceScale="5" result="result5">
+        <feDistantLight id="feDistantLight3038" elevation="50" azimuth="235"/>
+      </feDiffuseLighting>
+      <feComposite id="feComposite3040" in2="SourceGraphic" k1="1.4" in="result5" result="fbSourceGraphic" operator="arithmetic" k2="0" k3="0" k4="0"/>
+      <feGaussianBlur id="feGaussianBlur3042" result="result0" in="fbSourceGraphic" stdDeviation="3"/>
+      <feSpecularLighting id="feSpecularLighting3044" specularExponent="40" specularConstant="1.29999995" surfaceScale="4" lighting-color="#ffffff" result="result1" in="result0">
+        <feDistantLight id="feDistantLight3046" azimuth="235" elevation="50"/>
+      </feSpecularLighting>
+      <feComposite id="feComposite3048" in2="result1" k3="1" k2="1" operator="arithmetic" result="result4" in="fbSourceGraphic" k1="0" k4="0"/>
+      <feComposite id="feComposite3050" in2="SourceGraphic" operator="in" result="fbSourceGraphic" in="result4"/>
+      <feColorMatrix result="fbSourceGraphicAlpha" in="fbSourceGraphic" values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0" id="feColorMatrix3052"/>
+      <feGaussianBlur id="feGaussianBlur3054" in="fbSourceGraphicAlpha" stdDeviation="3" result="blur"/>
+      <feColorMatrix id="feColorMatrix3056" result="bluralpha" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.5 0 "/>
+      <feOffset id="feOffset3058" in="bluralpha" dx="1" dy="1" result="offsetBlur"/>
+      <feMerge id="feMerge3060">
+        <feMergeNode id="feMergeNode3062" in="offsetBlur"/>
+        <feMergeNode id="feMergeNode3064" in="fbSourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.35" inkscape:cx="368.33744" inkscape:cy="220.73157" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="false" inkscape:window-width="1366" inkscape:window-height="706" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:showpageshadow="false" showborder="false"/>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-6.662556,-28.78125)">
+    <path sodipodi:type="arc" style="fill:#d40000;fill-opacity:1;stroke:none;filter:url(#filter2987)" id="path2985" sodipodi:cx="360" sodipodi:cy="450.93362" sodipodi:rx="294.28571" sodipodi:ry="267.14285" d="m 654.28571,450.93362 c 0,147.53893 -131.7562,267.14286 -294.28571,267.14286 -162.52951,0 -294.285706,-119.60393 -294.285706,-267.14286 0,-147.53892 131.756196,-267.14285 294.285706,-267.14285 162.52951,0 294.28571,119.60393 294.28571,267.14285 z" transform="matrix(0.58951807,0,0,0.64941563,154.91635,112.37617)" inkscape:export-filename="C:\Users\user\Documents\img\fotoVectors\seal.png" inkscape:export-xdpi="90" inkscape:export-ydpi="90"/>
+    <path style="fill:#d40000;stroke:none;filter:url(#filter3007)" d="m 280,149.5 c -16.77356,0 -34.85544,79.76778 -48.5625,88.5625 -3.66374,-18.31872 -23.56623,-64.27379 -34.28125,-42.84375 -2.30357,4.60714 8.34654,51.65346 0,60 -1.35036,1.35037 -8.41578,-7.55526 -11.4375,-8.5625 -9.6463,-3.21544 -36.64352,-1.8808 -28.5625,14.28125 2.13766,4.27532 25.9407,62.6218 22.84375,65.71875 -0.68432,0.68432 -14.70499,-25.29501 -25.71875,-14.28125 -16.68195,16.68195 3.16305,74.56931 11.4375,82.84375 1.75326,1.75327 -45.86727,-8.85954 -31.4375,20 10.42437,20.84874 16.80078,36.80078 34.28125,54.28125 6.45952,6.45952 -39.2278,1.54441 -25.71875,28.5625 11.70341,23.40683 40.48094,26.19969 57.15625,42.875 3.4355,3.4355 -21.54552,7.26427 -22.84375,8.5625 -6.96559,6.96559 9.67082,26.82706 11.40625,28.5625 14.11875,14.11875 55.4072,9.60663 74.28125,17.15625 17.31148,6.9246 -4.12291,11.72292 2.875,25.71875 11.82328,23.64657 108.00167,-1.54278 122.84375,-11.4375 19.69021,-13.12681 -19.40942,22.875 14.28125,22.875 43.48757,0 53.98634,-15.0534 82.875,-34.3125 5.76658,-3.84439 5.68615,-17.09105 8.5625,-22.84375 2.08513,-4.17025 10.29849,16.58674 11.4375,17.15625 11.43421,5.71711 26.29264,-18.90917 28.5625,-25.71875 7.93427,-23.80283 -13.10256,-59.48237 -2.84375,-80 0.90874,-1.81747 48.77945,39.78306 60,28.5625 12.49541,-12.49541 6.44892,-66.01412 -2.875,-80 -9.71242,-14.56862 -49.50595,-24.7753 -37.125,-37.15625 13.31508,-13.31508 68.29216,14.82194 77.125,-2.84375 19.92325,-39.84648 -83.51135,-72.52557 -68.5625,-80 27.44142,-13.7207 53.65606,-44.60947 11.4375,-65.71875 -18.17149,-9.08575 -47.47124,8.5625 -65.71875,8.5625 -19.70367,0 17.68588,-33.15948 8.5625,-51.40625 -4.23132,-8.46263 -77.125,20.75373 -77.125,8.5625 0,-8.32798 19.1134,-35.16785 8.5625,-45.71875 -4.93231,-4.93231 -80.39579,28.5625 -85.71875,28.5625 -2.26532,0 -2.84375,-25.80111 -2.84375,-37.125 0,-3.46233 -54.42927,42.99177 -57.15625,45.71875 C 278.62032,228.03593 291.21629,149.5 280,149.5 z m 87.15625,105.71875 c 82.84271,0 150,67.15729 150,150 0,82.84271 -67.15729,150 -150,150 -82.84271,0 -150,-67.15729 -150,-150 0,-82.84271 67.15729,-150 150,-150 z" id="path3001" inkscape:connector-curvature="0"/>
+    <path id="path3029" style="fill:#d40000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3032)" d="m 259.99999,449.50505 c 61.12295,-28.94232 138.43259,32.99598 188.57143,-17.14286 39.47811,65.79683 -172.52272,69.98492 -188.57143,17.14286 z m 22.85715,-62.85715 c 25.6844,-77.93162 70.31916,-35.15958 74.28571,-37.14285 19.73913,-9.86957 3.12788,-31.56395 20,-40 0.2537,-0.12685 21.68856,44.02572 22.85714,42.85714 7.97018,-7.97017 9.555,-29.06322 20,-34.28572 4.3581,-2.17905 12.1984,30.11108 14.28572,34.28572 4.14086,8.28172 30.10179,43.52053 20,48.57143 -21.72162,10.8608 -93.2431,0 -108.57143,0 -3.73977,0 -65.71429,9.44632 -65.71429,5.71428 0,-6.73435 1.53643,-13.39642 2.85715,-20 z" inkscape:connector-curvature="0" transform="matrix(1.1082252,0,0,1.1082252,-33.06287,-43.035049)" inkscape:export-filename="C:\Users\user\Documents\img\fotoVectors\seal.png" inkscape:export-xdpi="90" inkscape:export-ydpi="90"/>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Open Clip Art Library</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>Red Wax Seal</dc:title>
+        <dc:date>2012-01-31T02:34:35</dc:date>
+        <dc:description>Red Color Wax Seal</dc:description>
+        <dc:source>http://openclipart.org/detail/167567/red-wax-seal-by-gadgetscode</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>gadgetscode</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>Red</rdf:li>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>color</rdf:li>
+            <rdf:li>seal</rdf:li>
+            <rdf:li>wax</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
