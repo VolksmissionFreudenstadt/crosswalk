@@ -24,6 +24,12 @@ Das Heft mit seinen Quelldateien lässt sich mit Git ganz einfach in der jeweils
 
 Alternativ dazu stehen fertige PDF-Dateien auf GitHub unter [Releases](https://github.com/VolksmissionFreudenstadt/crosswalk/releases/) zur Verfügung.
 
+## Lehrerheft
+Das Scribus-Dokument [heft.sla](heft.sla) enthällt sowohl das Schülerheft als auch das Lehrerheft mit den Lösungen. Um zwischen den beiden Versionen umzuschalten, gehst du in Scribus wie folgt vor:
+
+ * "Ebenen"-Dialog aufrufen (Fenster > Ebenen, oder `F6`)
+ * Bei der Ebene "Lösungen" die Sichtbarkeit bzw. Druckbarkeit je nach Wunsch an- oder ausschalten. Die Druckbarkeit wirkt sich auch auf den PDF-Export aus.
+
 ## Druck
 Wir lassen unser Arbeitsheft als gebundene Broschüre mit Drahtheftung im A4-Format bei der Firma wir-machen-druck in Backnang drucken. Die Produktionskosten liegen bei einem Druck von 20 Exemplaren zwischen 8 und 10 Euro pro Exemplar.
 
