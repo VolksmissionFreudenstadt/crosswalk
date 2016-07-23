@@ -20,6 +20,7 @@ Alle benötigten Schriftarten werden im Ordner "fonts" mitgeliefert. Dieses Proj
 * *Handlee* von Joe Prince, verfügbar unter der SIL Open Font License 1.1.
 * *Just Me Again Down Here* von Kimberly Geswein, verfügbar unter der SIL Open Font License 1.1.
 * *Open Sans* von Steve Matteson, Ascender Corp., verfügbar unter der Apache 2.0 License.
+* *Rock Salt* von Sideshow, verfügbar unter der Apache 2.0 License.
 * *Stardos Stencil* von Vernon Adams, verfügbar unter der SIL Open Font License.
 
 ## Das Heft herunterladen und bearbeiten
