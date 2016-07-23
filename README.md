@@ -14,6 +14,14 @@ Folgende Voraussetzungen sind nötig, um das Heft bearbeiten zu können:
 
 Das Quellformat des Hefts ist Scribus, aktuell in der Version 1.5.2. Scribus ist Open Source und kann für die meisten Betriebssysteme hier kostenlos heruntergeladen werden. Bitte beachte: Die Version 1.4.x kann das Dokument nicht öffnen! 
 
+### Schriftarten
+Alle benötigten Schriftarten werden im Ordner "fonts" mitgeliefert. Dieses Projekt verwendet die folgenden freien Schriftarten:
+
+* *Handlee* von Joe Prince, verfügbar unter der SIL Open Font License 1.1.
+* *Just Me Again Down Here* von Kimberly Geswein, verfügbar unter der SIL Open Font License 1.1.
+* *Open Sans* von Steve Matteson, Ascender Corp., verfügbar unter der Apache 2.0 License.
+* *Stardos Stencil* von Vernon Adams, verfügbar unter der SIL Open Font License.
+
 ## Das Heft herunterladen und bearbeiten
 Das Heft mit seinen Quelldateien lässt sich mit Git ganz einfach in der jeweils aktuellen Version von Assembla herunterladen: 
 
@@ -37,3 +45,4 @@ Wir lassen unser Arbeitsheft als gebundene Broschüre mit Drahtheftung im A4-For
 
 ## Lizenz
 Alle hier bereitgestellten Inhalte werden auf der Basis der [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International-Lizenz](https://creativecommons.org/licenses/by-sa/4.0/legalcode#languages) zur Verfügung gestellt. Bilder haben je nach Quelle eine eigene Lizenz. Ausgenommen sind Logos der Volksmission Freudenstadt und ihrer Arbeitsbereiche. Für diese gilt: Alle Rechte vorbehalten.
+
