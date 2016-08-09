@@ -2,8 +2,8 @@ CrossWalk
 =========
 Arbeitsheft und Material für CrossWalk
 
-CrossWalk ist ein Projekt der Volksmission Freudenstadt  
-Autor: Pastor Christoph Fischer, christoph.fischer@volksmission.de.      
+CrossWalk ist ein Projekt der [Volksmission Freudenstadt](http://www.volksmission-freudenstadt.de/)
+Autor: [Pastor Christoph Fischer](http://christoph-fischer.org), christoph.fischer@volksmission.de.      
 
 
 ## Voraussetzungen
