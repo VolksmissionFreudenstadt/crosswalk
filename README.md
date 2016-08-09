@@ -12,10 +12,10 @@ Folgende Voraussetzungen sind nötig, um das Heft bearbeiten zu können:
 
 ### Scribus
 
-Das Quellformat des Hefts ist Scribus, aktuell in der Version 1.5.2. Scribus ist Open Source und kann für die meisten Betriebssysteme hier kostenlos heruntergeladen werden. Bitte beachte: Die Version 1.4.x kann das Dokument nicht öffnen! 
+Das Quellformat des Hefts ist Scribus, aktuell in der Version 1.5.2. Scribus ist Open Source und kann für die meisten Betriebssysteme [hier](http://www.scribus.net/) kostenlos heruntergeladen werden. Bitte beachte: Die Version 1.4.x kann das Dokument nicht öffnen! 
 
 ### Schriftarten
-Alle benötigten Schriftarten werden im Ordner "fonts" mitgeliefert. Dieses Projekt verwendet die folgenden freien Schriftarten:
+Alle benötigten Schriftarten werden im Ordner "[Schriftarten](Grafik/Schriftarten/)" mitgeliefert. Dieses Projekt verwendet die folgenden freien Schriftarten:
 
 * *Handlee* von Joe Prince, verfügbar unter der SIL Open Font License 1.1.
 * *Just Me Again Down Here* von Kimberly Geswein, verfügbar unter der SIL Open Font License 1.1.
@@ -34,7 +34,7 @@ Das Heft mit seinen Quelldateien lässt sich mit Git ganz einfach in der jeweils
 Alternativ dazu stehen fertige PDF-Dateien auf GitHub unter [Releases](https://github.com/VolksmissionFreudenstadt/crosswalk/releases/) zur Verfügung.
 
 ## Lehrerheft
-Das Scribus-Dokument [heft.sla](heft.sla) enthällt sowohl das Schülerheft als auch das Lehrerheft mit den Lösungen. Um zwischen den beiden Versionen umzuschalten, gehst du in Scribus wie folgt vor:
+Das Scribus-Dokument [Heft.sla](Heft.sla) enthällt sowohl das Schülerheft als auch das Lehrerheft mit den Lösungen. Um zwischen den beiden Versionen umzuschalten, gehst du in Scribus wie folgt vor:
 
  * "Ebenen"-Dialog aufrufen (Fenster > Ebenen, oder `F6`)
  * Bei der Ebene "Lösungen" die Sichtbarkeit bzw. Druckbarkeit je nach Wunsch an- oder ausschalten. Die Druckbarkeit wirkt sich auch auf den PDF-Export aus.
