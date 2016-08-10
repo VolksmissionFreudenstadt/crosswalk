@@ -13,10 +13,14 @@ $commands = [
  * Hilfsfunktion zur Ausgabe auf die Konsole
  * @param string $outputText Ausgabetext
  * @param bool $lineBreak Zeilenumbruch am Ende
+ * @param bool $decode Text ist UTF8
  */
-function out($outputText, $lineBreak = TRUE)
+function out($outputText, $lineBreak = true, $decode = true)
 {
-    echo utf8_decode($outputText) . ($lineBreak ? "\r\n" : '');
+    if ($decode) {
+        $outputText = utf8_decode($outputText);
+    }
+    echo $outputText . ($lineBreak ? "\r\n" : '');
 }
 
 /**
@@ -80,13 +84,45 @@ function imageData($fileName)
     return $data;
 }
 
-define('CSV_ERSTELLEN', 1);
+/**
+ * Quellenverzeichnis einlesen
+ * @param string $csvFile Pfad zum Quellenverzeichnis
+ * @return array Quellen
+ */
+function getSources($csvFile)
+{
+    $sources = [];
+    $recs = explode("\n", str_replace("\r\n", "\n", utf8_encode(file_get_contents($csvFile))));
+    unset($recs[0]);
+    foreach ($recs as $rec) {
+        $tmp = explode(';', $rec);
+        // Anführungszeichen entfernen
+        foreach ($tmp as $key => $value) {
+            if ((substr($value, 0, 1) == '"') && (substr($value, -1) == '"')) {
+                $tmp[$key] = substr($value, 1, -1);
+            }
+        }
+        if (isset($tmp[1])) {
+            $fileName = 'Grafik/' . $tmp[0] . '/' . $tmp[1];
+            $sources[$fileName] = [
+                'file' => $fileName,
+                'site' => $tmp[2],
+                'author' => $tmp[3],
+                'source' => $tmp[2] . ($tmp[3] ? ' / ' . $tmp[3] : ''),
+                'title' => $tmp[4],
+            ];
+        }
+    }
+    return $sources;
+}
+
 
 /**
  * Scribus-Dokument einlesen
  * @return SimpleXMLElement[] Dokumentinhalt
  */
-function getDocument() {
+function getDocument()
+{
     $raw = new SimpleXMLElement(file_get_contents('../Heft.sla'));
     return $raw->DOCUMENT;
 
@@ -97,8 +133,9 @@ function getDocument() {
  * @param SimpleXMLElement $doc Dokument
  * @return int Anzahl der Seiten
  */
-function getNumberOfPages($doc) {
-    return  (int)$doc['ANZPAGES'];
+function getNumberOfPages($doc)
+{
+    return (int)$doc['ANZPAGES'];
 }
 
 
@@ -107,7 +144,8 @@ function getNumberOfPages($doc) {
  * @param SimpleXMLElement $doc Dokument
  * @return array Seitentitel
  */
-function getPageTitles($doc) {
+function getPageTitles($doc)
+{
     $numPages = getNumberOfPages($doc);
     $pageTitle = [];
     foreach ($doc->PAGEOBJECT as $pageObject) {
@@ -128,28 +166,48 @@ function getPageTitles($doc) {
 }
 
 
-function checkArgument($param, $paramHelp) {
+/**
+ * Prüfe, ob alle benötigten Parameter vorhanden sind
+ * @param array $params Parameter
+ * @return array Werte
+ */
+function checkArguments($params)
+{
     global $argv;
-    if (!isset($argv[2])) {
-        out('Fehlender Parameter: <'.$param.'>');
-        out('Aufruf: '.$argv[0].' '.$argv[1].' <'.$param.'>');
+    if (count($argv) < (count($params) + 2)) {
+        out('FEHLER: Fehlende Angaben.');
+        out('Aufruf: ' . $argv[0] . ' ' . $argv[1], false);
+        foreach ($params as $param => $paramHelp) {
+            out(' <' . $param . '>', false);
+        }
+        out('');
         out('');
         out('Parameter:');
-        out(str_pad('<'.$param.'>',20,' '). $paramHelp);
+        foreach ($params as $param => $paramHelp) {
+            out(str_pad('<' . $param . '>', 20, ' ') . $paramHelp);
+        }
         die();
     } else {
-        return $argv[2];
+        $values = [];
+        $ct = 1;
+        foreach ($params as $param => $paramHelp) {
+            $ct++;
+            $values[$ct-2] = $argv[$ct];
+        }
+        return $values;
     }
+
 }
 
 
 /**
  * Befehl 'liste'
  */
-function cmdListe() {
-    $csvFile = checkArgument('CSV-Datei', 'Name und Pfad der Ausgabedatei');
+function cmdListe()
+{
+    list($csvFile) = checkArguments(['CSV-Datei' => 'Name und Pfad der Ausgabedatei']);
 
-    out ('Suche nach Bildern... ', false);
+    out('Suche nach Bildern... ', false);
     $doc = getDocument();
     $imageList = [];
     // Alle Bilder finden
@@ -163,15 +221,15 @@ function cmdListe() {
             }
         }
     }
-    out ('Fertig ['.count($imageList).'].');
+    out('Fertig [' . count($imageList) . '].');
 
 
-    out ('Finde alle Clipartgruppen... ', false);
+    out('Finde alle Clipartgruppen... ', false);
     $pageTitles = getPageTitles($doc);
     foreach ($doc->PAGEOBJECT as $pageObject) {
-        if (($pageObject['PTYPE']== 6) || ($pageObject['PTYPE']==12)) {
+        if (($pageObject['PTYPE'] == 6) || ($pageObject['PTYPE'] == 12)) {
             $title = $pageObject['ANNAME'];
-            if (substr($title, 0, 5)=='SVG__') {
+            if (substr($title, 0, 5) == 'SVG__') {
                 $tmp = explode('__', $title);
                 if ($file !== 'ignore') {
                     $file = 'Grafik/Clipart/' . $tmp[1] . '.svg';
@@ -189,9 +247,9 @@ function cmdListe() {
                     $file = str_replace('Copy of ', '', $title);
                     $file = str_replace('Kopie von ', '', $file);
                     $file = trim($file);
-                    if ((substr($file, 0, 1)=='g') || (substr($file, 0, 4)=='path')) {
-                        $file = 'Grafik/SVG/'.((int)$pageNo+1).'.'.$pageTitles[(int)$pageNo].'--'.$file;
-                        out ($file);
+                    if ((substr($file, 0, 1) == 'g') || (substr($file, 0, 4) == 'path')) {
+                        $file = 'Grafik/SVG/' . ((int)$pageNo + 1) . '.' . $pageTitles[(int)$pageNo] . '--' . $file;
+                        out($file);
                         $imageList[$file] = $file;
                     }
                 }
@@ -200,9 +258,9 @@ function cmdListe() {
     }
 
 
-    out ('Fertig ['.count($imageList).'].');
+    out('Fertig [' . count($imageList) . '].');
 
-    out ('Schreibe Bilderliste nach '.$csvFile.' ... ', false);
+    out('Schreibe Bilderliste nach ' . $csvFile . ' ... ', false);
     $csv = fopen($csvFile, 'w');
     csvWrite($csv, ['Kategorie', 'Dateiname', 'Quelle', 'Autor', 'Titel']);
 
@@ -210,15 +268,27 @@ function cmdListe() {
         csvWrite($csv, imageData($image));
     }
     fclose($csv);
-    out ('Fertig.');
+    out('Fertig.');
 
 }
 
 /**
  * Befehl 'Ausgabe'
  */
-function cmdAusgabe() {
-    global $doc, $pageTitle;
+function cmdAusgabe()
+{
+    list($csvFile, $txtFile) = checkArguments([
+        'CSV-Datei' => 'Name und Pfad der Bilderliste',
+        'Ausgabedatei' => 'Name und Pfad zur Ausgabedatei',
+    ]);
+    $sources = getSources($csvFile);
+
+    $doc = getDocument();
+    $pageTitles = getPageTitles($doc);
+
+    out('Suche nach Bildern... ', false);
+    $imageList = [];
+
     // Alle Bilder finden
     foreach ($doc->PAGEOBJECT as $pageObject) {
         if (($pageObject['PTYPE'] == 2) && (trim($pageObject['PFILE']))) {
@@ -226,8 +296,67 @@ function cmdAusgabe() {
             if ($pageNo >= 0) {
                 $file = (string)$pageObject['PFILE'];
                 $images[$pageNo][$file] = $file;
-                $imageList[$file] = $file;
             }
+        }
+    }
+    out('Fertig.');
+    out('Finde alle Clipartgruppen... ', false);
+    $pageTitles = getPageTitles($doc);
+    foreach ($doc->PAGEOBJECT as $pageObject) {
+        $pageNo = (int)$pageObject['OwnPage'];
+        if ($pageObject['XPOS']>0) {
+            if (($pageObject['PTYPE'] == 6) || ($pageObject['PTYPE'] == 12)) {
+                $title = $pageObject['ANNAME'];
+                if (substr($title, 0, 5) == 'SVG__') {
+                    $tmp = explode('__', $title);
+                    if ($tmp[1] !== 'ignore') {
+                        $file = 'Grafik/Clipart/' . $tmp[1] . '.svg';
+                        $images[$pageNo][$file] = $file;
+                    }
+                } elseif (substr($title, 0, 12) == 'ScreenBean__') {
+                    $tmp = explode('__', $title);
+                    if ($file !== 'ignore') {
+                        $file = 'Grafik/ScreenBeans/' . $tmp[1] . '.svg';
+                        $images[$pageNo][$file] = $file;
+                    }
+                }
+            }
+        }
+    }
+    out('Fertig.');
+
+    // Sortieren
+    ksort($images);
+    $imageList = [];
+    foreach ($images as $key => $img) {
+        $imageList[$pageTitles[$key]] = $img;
+    }
+
+    $missing = [];
+
+    out ('Schreibe Quellennachweise nach "'.$txtFile.'"... ', false);
+    $txt = fopen($txtFile, 'w');
+    foreach ($imageList as $page => $pageImages) {
+        $s = [];
+        foreach ($pageImages as $image) {
+            if (isset($sources[$image])) {
+                $source = trim(($sources[$image]['title'] ? '"'.$sources[$image]['title'].'", ' : '').$sources[$image]['source']);
+                if ($source) $s[] = $source;
+            } else {
+                $missing[] = $image;
+            }
+        }
+        if (count($s)) fwrite($txt, utf8_decode($page . ': ' . join('; ', $s)."\r\n"));
+    }
+    fclose($txt);
+    out ('Fertig.');
+
+
+    if (count($missing)) {
+        out('');
+        out('Fehlende Quellenangaben:');
+        foreach ($missing as $m) {
+            out($m);
         }
     }
 }
@@ -235,31 +364,32 @@ function cmdAusgabe() {
 /**
  * Befehl 'hilfe'
  */
-function cmdHilfe() {
+function cmdHilfe()
+{
     global $commands, $argv;
     ksort($commands);
 
-    out('Verwendung: '.$argv[0].' <Befehl>');
+    out('Verwendung: ' . $argv[0] . ' <Befehl>');
     out('');
     out('Verfügbare Befehle:');
 
     foreach ($commands as $cmd => $help) {
-        out (str_pad($cmd, 20, ' ').$help);
+        out(str_pad($cmd, 20, ' ') . $help);
     }
 }
 
 
 // Kommandozeile:
-if (!isset($argv[1])) $argv[1] = 'hilfe';
-if (function_exists($cmdFunction = 'cmd'.ucfirst($argv[1]))) {
+if (!isset($argv[1])) {
+    $argv[1] = 'hilfe';
+}
+if (function_exists($cmdFunction = 'cmd' . ucfirst($argv[1]))) {
     $cmdFunction();
     exit;
 } else {
-    out('Ungültiger Befehl. Verwende "'.$argv[0].' hilfe", um eine Liste aller verfügbaren Befehle zu erhalten.');
+    out('Ungültiger Befehl. Verwende "' . $argv[0] . ' hilfe", um eine Liste aller verfügbaren Befehle zu erhalten.');
     die();
 }
-
-
 
 
 // CSV-Ausgabe
