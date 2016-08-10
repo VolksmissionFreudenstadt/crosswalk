@@ -32,7 +32,7 @@ function csvWrite($csv, $data)
         }
     }
     if (CSV_ERSTELLEN) {
-        fwrite($csv, join(';', $data) . "\r\n");
+        fwrite($csv, utf8_decode(join(';', $data)) . "\r\n");
     }
 }
 
@@ -174,7 +174,13 @@ function cmdListe() {
             if (substr($title, 0, 5)=='SVG__') {
                 $tmp = explode('__', $title);
                 if ($file !== 'ignore') {
-                    $file = 'Grafik/Clipart/'.$tmp[1].'.svg';
+                    $file = 'Grafik/Clipart/' . $tmp[1] . '.svg';
+                    $imageList[$file] = $file;
+                }
+            } elseif (substr($title, 0, 12) == 'ScreenBean__') {
+                $tmp = explode('__', $title);
+                if ($file !== 'ignore') {
+                    $file = 'Grafik/ScreenBeans/' . $tmp[1] . '.svg';
                     $imageList[$file] = $file;
                 }
             } else {
