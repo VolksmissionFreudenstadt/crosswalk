@@ -5,9 +5,13 @@ $images = [];
 
 $commands = [
     'hilfe' => 'Diesen Hilfetext anzeigen',
-    'liste' => 'Alle verwendeten Bilder in eine CSV-Datei ausgeben',
+    'inline' => 'Inline-Bilder auflisten',
     'ausgabe' => 'Bildnachweise als Text erzeugen',
 ];
+
+
+$defaultLicenses = [];
+$licenses = [];
 
 /**
  * Hilfsfunktion zur Ausgabe auf die Konsole
@@ -35,9 +39,7 @@ function csvWrite($csv, $data)
             $data[$key] = '"' . $value . '"';
         }
     }
-    if (CSV_ERSTELLEN) {
-        fwrite($csv, utf8_decode(join(';', $data)) . "\r\n");
-    }
+    fwrite($csv, utf8_decode(join(';', $data)) . "\r\n");
 }
 
 /**
@@ -110,12 +112,34 @@ function getSources($csvFile)
                 'author' => $tmp[3],
                 'source' => $tmp[2] . ($tmp[3] ? ' / ' . $tmp[3] : ''),
                 'title' => $tmp[4],
+                'licenseTitle' => $tmp[5],
+                'licenseUrl' => $tmp[6],
             ];
         }
     }
     return $sources;
 }
 
+function getDefaultLicenses() {
+    global $defaultLicenses;
+    $recs = explode("\n", str_replace("\r\n", "\n", utf8_encode(file_get_contents('../Dokumentation/Bildlizenzen.csv'))));
+    unset($recs[0]);
+    foreach ($recs as $rec) {
+        $tmp = explode(';', $rec);
+        // Anführungszeichen entfernen
+        foreach ($tmp as $key => $value) {
+            if ((substr($value, 0, 1) == '"') && (substr($value, -1) == '"')) {
+                $tmp[$key] = substr($value, 1, -1);
+            }
+        }
+        if (isset($tmp[1])) {
+            $defaultLicenses[$tmp[0]] = [
+                'title' => $tmp[1],
+                'url' => $tmp[2],
+            ];
+        }
+    }
+}
 
 /**
  * Scribus-Dokument einlesen
@@ -199,84 +223,49 @@ function checkArguments($params)
 
 }
 
-
 /**
- * Befehl 'liste'
+ * Lizenzangaben in Lizenzliste aufnehmen
+ * @param string $site Quellenangabe
+ * @param string $licenseTitle Optional: Lizenztitel
+ * @param string $licenseUrl Optional: Lizenz-URL
+ * @return bool|int Fußnotennummer oder FALSE, wenn keine Default-Lizenz für die Quelle vorhanden ist
  */
-function cmdListe()
-{
-    list($csvFile) = checkArguments(['CSV-Datei' => 'Name und Pfad der Ausgabedatei']);
+function assignLicense($site, $licenseTitle = NULL, $licenseUrl = NULL ) {
+    global $licenses, $defaultLicenses;
 
-    out('Suche nach Bildern... ', false);
-    $doc = getDocument();
-    $imageList = [];
-    // Alle Bilder finden
-    foreach ($doc->PAGEOBJECT as $pageObject) {
+    if (!count($defaultLicenses)) getDefaultLicenses();
 
-        if ((trim($pageObject['PFILE']))) {
-            $pageNo = (int)$pageObject['OwnPage'];
-            if ($pageNo >= 0) {
-                $file = (string)$pageObject['PFILE'];
-                $imageList[$file] = $file;
-            }
+    if ($licenseTitle) {
+        if (isset($defaultLicenses[$licenseTitle])) {
+            $license = $defaultLicenses[$licenseTitle];
+        } else {
+            $license = ['title' => $licenseTitle, 'url' => $licenseUrl];
+        }
+    } else {
+        if (isset($defaultLicenses[$site])) {
+            $license = $defaultLicenses[$site];
+        } else {
+            return false;
         }
     }
-    out('Fertig [' . count($imageList) . '].');
-
-
-    out('Finde alle Clipartgruppen... ', false);
-    $pageTitles = getPageTitles($doc);
-    foreach ($doc->PAGEOBJECT as $pageObject) {
-        if (($pageObject['PTYPE'] == 6) || ($pageObject['PTYPE'] == 12)) {
-            $title = $pageObject['ANNAME'];
-            if (substr($title, 0, 5) == 'SVG__') {
-                $tmp = explode('__', $title);
-                if ($file !== 'ignore') {
-                    $file = 'Grafik/Clipart/' . $tmp[1] . '.svg';
-                    $imageList[$file] = $file;
-                }
-            } elseif (substr($title, 0, 12) == 'ScreenBean__') {
-                $tmp = explode('__', $title);
-                if ($file !== 'ignore') {
-                    $file = 'Grafik/ScreenBeans/' . $tmp[1] . '.svg';
-                    $imageList[$file] = $file;
-                }
-            } else {
-                $pageNo = $pageObject['OwnPage'];
-                if ($pageNo >= 0) {
-                    $file = str_replace('Copy of ', '', $title);
-                    $file = str_replace('Kopie von ', '', $file);
-                    $file = trim($file);
-                    if ((substr($file, 0, 1) == 'g') || (substr($file, 0, 4) == 'path')) {
-                        $file = 'Grafik/SVG/' . ((int)$pageNo + 1) . '.' . $pageTitles[(int)$pageNo] . '--' . $file;
-                        out($file);
-                        $imageList[$file] = $file;
-                    }
-                }
-            }
-        }
+    $licenseText = $license['title'].($license['url'] ? ', '.$license['url'] : '');
+    if (($x = in_array($licenseText, $licenses))!== false) {
+        return $x;
+    } else {
+        $x = count($licenses)+1;
+        $licenses[$x] = $licenseText;
+        return $x;
     }
-
-
-    out('Fertig [' . count($imageList) . '].');
-
-    out('Schreibe Bilderliste nach ' . $csvFile . ' ... ', false);
-    $csv = fopen($csvFile, 'w');
-    csvWrite($csv, ['Kategorie', 'Dateiname', 'Quelle', 'Autor', 'Titel']);
-
-    foreach ($imageList as $image) {
-        csvWrite($csv, imageData($image));
-    }
-    fclose($csv);
-    out('Fertig.');
-
 }
+
+
 
 /**
  * Befehl 'Ausgabe'
  */
 function cmdAusgabe()
 {
+    global $licenses;
     list($csvFile, $txtFile) = checkArguments([
         'CSV-Datei' => 'Name und Pfad der Bilderliste',
         'Ausgabedatei' => 'Name und Pfad zur Ausgabedatei',
@@ -341,13 +330,29 @@ function cmdAusgabe()
         foreach ($pageImages as $image) {
             if (isset($sources[$image])) {
                 $source = trim(($sources[$image]['title'] ? '"'.$sources[$image]['title'].'", ' : '').$sources[$image]['source']);
-                if ($source) $s[] = $source;
+                if ($source) {
+                    // Lizenz ermitteln
+
+                    if (isset($sources[$image]['licenseTitle'])) {
+                        $license = assignLicense($sources[$image]['site'], $sources[$image]['licenseTitle'], $sources[$image]['licenseUrl']);
+                    } else {
+                        $license = assignLicense($sources[$image]['site']);
+                    }
+                    if ($license) $source .= ' ['.$license.']';
+                    $s[] = $source;
+                }
             } else {
                 $missing[] = $image;
             }
         }
         if (count($s)) fwrite($txt, utf8_decode($page . ': ' . join('; ', $s)."\r\n"));
     }
+
+    fwrite ($txt, "\r\n\r\nBildlizenzen:\r\n");
+    foreach ($licenses as $key => $license) {
+        fwrite($txt, '['.$key.'] '.$license."\r\n");
+    }
+
     fclose($txt);
     out ('Fertig.');
 
@@ -360,6 +365,33 @@ function cmdAusgabe()
         }
     }
 }
+
+/**
+ * Befehl 'inline'
+ */
+function cmdInline() {
+    $doc = getDocument();
+    $pageTitles = getPageTitles($doc);
+    $index = [];
+    foreach ($doc->PAGEOBJECT as $pageObject) {
+        if (isset($pageObject['isInlineImage'])) {
+            if ($pageObject['isInlineImage']) {
+                $id = 'INLINE__'.(string)$pageObject['ItemID'];
+                $index[$pageTitles[(int)$pageObject['OwnPage']]][] = (string)$pageObject['ItemID'].', '.(string)$pageObject['inlineImageExt'].', '.$id;
+                if (isset($pageObject['ANNAME'])) {
+                    $pageObject['ANNAME'] = $id;
+                } else {
+                    $pageObject->addAttribute('ANNAME', $id);
+                }
+            }
+        }
+    }
+
+    ksort ($index);
+    foreach ($index as $page => $items)
+        foreach ($items as $item) out ($page.': '.$item);
+}
+
 
 /**
  * Befehl 'hilfe'
