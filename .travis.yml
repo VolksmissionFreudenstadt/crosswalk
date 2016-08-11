@@ -16,4 +16,4 @@ before_script:
   - sleep 3 # give xvfb some time to start      
 script:
   - scribus-ng -v
-  - scribus-ng -g -py .travis/to-pdf.py Heft.sla    
+  - scribus-ng -g -py .travis/to-pdf.py -pa verbose  -- Heft.sla    

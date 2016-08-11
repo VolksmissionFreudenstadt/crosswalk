@@ -12,4 +12,4 @@ if scribus.haveDoc() :
     pdf.file = filename+".pdf"
     pdf.save()
 else :
-    print("No file open")
+    print("Failed to open file.")
