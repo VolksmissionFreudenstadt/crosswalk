@@ -1,9 +1,12 @@
 sudo: required
+language: php
+
 addons:
   sources:
     - sourceline: 'https://launchpad.net/~scribus/+archive/ppa'
   apt:
     packages:
+      - xorg
       - scribus-ng
 script:
   - scribus -g -py .travis/to-pdf.py Heft.sla
