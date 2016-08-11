@@ -15,5 +15,5 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start      
 script:
-  - /usr/bin/scribus -v
-  - /usr/bin/scribus -g -py .travis/to-pdf.py Heft.sla    
+  - scribus-ng -v
+  - scribus-ng -g -py .travis/to-pdf.py Heft.sla    
