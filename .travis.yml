@@ -2,13 +2,14 @@ sudo: required
 dist: trusty
 language: php
 
-addons:
-  sources:
-    - sourceline: 'deb http://ppa.launchpad.net/scribus/ppa/ubuntu trusty main/debug'
-  apt:
-    packages:
-      - xvfb
-      - scribus-ng      
+before_install:
+  - sudo add-apt-repository ppa:scribus/ppa
+  - sudo apt-get -qq update
+  - sudo apt-get install -y xvfb scribus-ng
+
+
+
+      
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
