@@ -1,7 +1,10 @@
+sudo: required
 addons:
   sources:
     - sourceline: 'https://launchpad.net/~scribus/+archive/ppa'
   apt:
     packages:
-      - scribus
+      - scribus-ng
+      
+
       
