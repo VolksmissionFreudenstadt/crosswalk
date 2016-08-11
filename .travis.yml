@@ -6,8 +6,12 @@ addons:
     - sourceline: 'https://launchpad.net/~scribus/+archive/ppa'
   apt:
     packages:
-      - xorg
-      - scribus-ng
+      - xvfb
+      - scribus-ng      
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start      
 script:
   - scribus -g -py .travis/to-pdf.py Heft.sla
   - ls -l *.pdf
