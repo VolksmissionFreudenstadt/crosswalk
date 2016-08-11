@@ -5,6 +5,7 @@ addons:
   apt:
     packages:
       - scribus-ng
-      
-
+script:
+  - scribus -g -py .travis/to-pdf.py Heft.sla
+  - ls -l *.pdf
       
