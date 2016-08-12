@@ -7,7 +7,7 @@
 import os
 
 if scribus.haveDoc() :
-	scribus.setLayerPrintable("Lösungen", false)
+	scribus.setLayerPrintable("LÃ¶sungen", false)
     filename = os.path.splitext(scribus.getDocName())[0]
     pdf = scribus.PDFfile()
     pdf.file = filename+".pdf"
