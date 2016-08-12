@@ -1,3 +1,4 @@
+# -*- coding: utf-8
 # Produces a PDF for the SLA passed as a parameter.
 # Uses the same file name and replaces the .sla extension with .pdf
 #
@@ -7,7 +8,7 @@
 import os
 
 if scribus.haveDoc() :
-	scribus.setLayerPrintable("Lösungen", false)
+	scribus.setLayerPrintable("Loesungen", false)
     filename = os.path.splitext(scribus.getDocName())[0]
     pdf = scribus.PDFfile()
     pdf.file = filename+".pdf"
