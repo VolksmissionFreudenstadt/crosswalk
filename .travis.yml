@@ -12,17 +12,17 @@ before_script:
 script:
 - sudo cp -R Grafik/Schriftarten /usr/share/fonts/truetype
 - sudo fc-cache -f -v
-- scribus-ng -v
-- scribus-ng -g -py .travis/to-pdf.py -pa verbose  -- Heft.sla
+- scribus-ng -g -py .travis/lehrerheft.py -pa verbose  -- Heft.sla
+- mv Heft.pdf Lehrerheft-$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER.pdf
+- scribus-ng -g -py .travis/schuelerheft.py -pa verbose  -- Heft.sla
+- mv Heft.pdf Schuelerheft-$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER.pdf
 before_deploy:
   - git config --global user.email "builds@travis-ci.com"
   - git config --global user.name "Travis CI"
   - export GIT_TAG=$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER
   - git tag $GIT_TAG -a -m "TravisCI Build $TRAVIS_BUILD_NUMBER"
   - git push -q https://$TAGPERM@github.com/VolksmissionFreudenstadt/crosswalk --tags
-  - export RELEASE_FILE=Heft-$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER.pdf
-  - mv Heft.pdf $RELEASE_FILE
-  - ls -R  
+  - ls -l *.pdf  
 deploy:
   skip_cleanup: true
   provider: releases
