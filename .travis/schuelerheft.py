@@ -8,8 +8,8 @@
 import os
 
 if scribus.haveDoc() :
-	scribus.setLayerPrintable("Loesungen", false)
     filename = os.path.splitext(scribus.getDocName())[0]
+    scribus.setLayerPrintable("Loesungen", false)
     pdf = scribus.PDFfile()
     pdf.file = filename+".pdf"
     pdf.save()
