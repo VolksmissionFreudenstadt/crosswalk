@@ -24,6 +24,7 @@ before_deploy:
   - mv Heft.pdf $RELEASE_FILE
   - ls -R  
 deploy:
+  skip_cleanup: true
   provider: releases
   api_key:
     secure: qaVWuurhU6ykb3kJRio2qVtwbhZ1OG97D3hbgCgyoxI2fgmyjMVsv2i0lLK5aCaYeFvf3Lzjc/Jd6+guFnpiCIj4cjc7zyomOpgQMRVzeneTxD78cpFDyQ9PpbaWfM+gY1HsdY1zksaoBkQxCOfgvGnvLyzNpy2BkrkDRyr3407X0hMHoTT2serk5qSEruFApgfXUmXLyfihgO/jN81Kl5oayxhtH8Qb1Sw2kItl+iUPkK3jHUi4AQbTT2GrJ3qM5SDlni48vCNVoWNSY+D+EEY20r7Gp49iEpM/+8Wq2SaRyHx2Ow0Yta9Wcypo92D92wfh/ql81Is1IyZpkzD+UfddzsnZ1BBoFKx17er6SrQ0DDq7R2Yc4+348PgrOjqdqpUNt9v3LfhL6oA60AcB0p/9/dsInjqgkPqvkTz7JWLwsfrBWLZuGApeLMR+1BjPswwC46cRJg6tJsFWQW/Hy5+7utFpVLvTtcg/ao+xU3q0adIyw6u3ndauI2HjFZud+aCoXG437QI2F61n7owo1IwUSJkrjZftf6Q6GYreiiq9/O2X/l6WcxhW5V2VoepP3zK9q3z9TAJlowc2rbjLWB/ypNXphKSw+yeFZIzUIIrj7AIj7KKXVv5AmUu1ybHmLqfJWYz40gfun0LLRFBFmPw71w2DeLOKIeor2uRElj8=
