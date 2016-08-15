@@ -25,4 +25,4 @@ after_success:
 - eval "$(ssh-agent -s)"
 - ssh-keyscan $SSHHOST >> ~/.ssh/known_hosts
 - sshpass -p $SSHPASS rsync -avz -e "ssh" --progress *.pdf $SSHUSER@$SSHHOST:/home/$SSHUSER/crosswalk/build/
-- sshpass -p $SSHPASS ssh -v $SSHUSER@$SSHHOST "/home/$SSHUSER/crosswalk/build/deploy.sh $TRAVIS_BRANCH 2.0 $TRAVIS_BUILD_NUMBER $TRAVIS_COMMIT" 
+- sshpass -p $SSHPASS ssh $SSHUSER@$SSHHOST '/home/$SSHUSER/crosswalk/build/deploy.sh' 
