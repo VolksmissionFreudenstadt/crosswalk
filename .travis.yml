@@ -19,5 +19,5 @@ script:
 - echo -n $SSHKEY > ~/.ssh/id_rsa
 - chmod 600 ~/.ssh/id_rsa
 - ssh-keyscan $SSHHOST >> ~/.ssh/known_hosts
-- scp -B Schuelerheft-$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER.pdf $SSHUSER:"$SSHPASS"@$SSHHOST:crosswalk/build/
-- scp -B Lehrerheft-$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER.pdf $SSHUSER:"$SSHPASS"@$SSHHOST:crosswalk/build/
+- sshpass -e scp Schuelerheft-$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER.pdf $SSHUSER@$SSHHOST:crosswalk/build/
+- sshpass -e scp Lehrerheft-$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER.pdf $SSHUSER@$SSHHOST:crosswalk/build/
