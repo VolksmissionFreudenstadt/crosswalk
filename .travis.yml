@@ -9,7 +9,7 @@ before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 - sleep 3
-- export TRAVIS_DATE = ${date +'%d.%m.%Y'}
+- export TRAVIS_DATE = $(date -u +"%d.%m.%Y %M:%M%S")
 - sed -i '' 's/###VERSION###/$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER ($TRAVIS_COMMIT) vom $TRAVIS_DATE/g' Heft.sla
 script:
 - sudo cp -R Grafik/Schriftarten /usr/share/fonts/truetype
