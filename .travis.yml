@@ -22,6 +22,6 @@ after_success:
 - echo -n $SSHKEY > ~/.ssh/id_rsa
 - chmod 600 ~/.ssh/id_rsa
 - ssh-keyscan $SSHHOST >> ~/.ssh/known_hosts
-- travis_wait 30 rsync -avz -e "ssh" --progress *.pdf $SSHUSER@$SSHHOST:crosswalk/build/
-- sshpass -p $SSHPASS ssh -v $SSHUSER@$SSHHOST:crosswalk/build/deploy.sh
+- travis_wait 30 rsync -avz -e "ssh" --progress *.pdf $SSHUSER@$SSHHOST:/home/$SSHUSER/crosswalk/build/
+- sshpass -p $SSHPASS ssh -v $SSHUSER@$SSHHOST:/home/$SSHUSER/crosswalk/build/deploy.sh
 
