@@ -9,6 +9,8 @@ before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 - sleep 3
+- export TRAVIS_DATE = ${date +'%d.%m.%Y'}
+- sed -i '' 's/###VERSION###/$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER ($TRAVIS_COMMIT) vom $TRAVIS_DATE/g' Heft.sla
 script:
 - sudo cp -R Grafik/Schriftarten /usr/share/fonts/truetype
 - sudo fc-cache -f -v
@@ -20,7 +22,6 @@ after_success:
 - echo -n $SSHKEY > ~/.ssh/id_rsa
 - chmod 600 ~/.ssh/id_rsa
 - ssh-keyscan $SSHHOST >> ~/.ssh/known_hosts
-- sshpass -p $SSHPASS scp -v Schuelerheft-$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER.pdf $SSHUSER@$SSHHOST:crosswalk/build/
-- sshpass -p $SSHPASS scp -v Lehrerheft-$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER.pdf $SSHUSER@$SSHHOST:crosswalk/build/
+- travis_wait 30 rsync -avz -e "ssh" *.pdf $SSHUSER@$SSHHOST:crosswalk/build/
 - sshpass -p $SSHPASS ssh -v $SSHUSER@$SSHHOST:crosswalk/build/deploy.sh
 
