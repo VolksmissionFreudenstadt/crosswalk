@@ -33,13 +33,25 @@ Das Heft mit seinen Quelldateien lässt sich mit Git ganz einfach in der jeweils
 
 Alternativ dazu stehen fertige PDF-Dateien auf GitHub unter [Releases](https://github.com/VolksmissionFreudenstadt/crosswalk/releases/) zur Verfügung.
 
-## Lehrerheft
+### Lehrerheft
 Das Scribus-Dokument [Heft.sla](Heft.sla) enthällt sowohl das Schülerheft als auch das Lehrerheft mit den Lösungen. Um zwischen den beiden Versionen umzuschalten, gehst du in Scribus wie folgt vor:
 
  * "Ebenen"-Dialog aufrufen (Fenster > Ebenen, oder `F6`)
  * Bei der Ebene "Lösungen" die Sichtbarkeit bzw. Druckbarkeit je nach Wunsch an- oder ausschalten. Die Druckbarkeit wirkt sich auch auf den PDF-Export aus.
 
-## Druck
+### Entwicklerversionen
+CrossWalk wird aktuell weiterentwickelt. Dazu verwenden wir den [develop](/tree/develop)-Zweig. Jede dort erfasste Änderung wird von [Travis CI](https://travis-ci.org/VolksmissionFreudenstadt/crosswalk/) automatisch geladen und die zwei PDF-Dateien für Schüler- und Lehrerheft werden innerhalb von ca. 10 Minuten bereitgestellt. 
+
+Den aktuellen Build-Status siehst du hier:
+![Travis CI Build Status](https://travis-ci.org/VolksmissionFreudenstadt/crosswalk.svg)
+
+Die aktuellen PDFs der jeweils letzten Entwicklerversion können hier heruntergeladen werden:
+
+ * [Schülerheft](http://www.volksmission-freudenstadt.de/fileadmin/crosswalk/build/schuelerheft.pdf) (Entwicklerversion)
+ * [Lehrerheft](http://www.volksmission-freudenstadt.de/fileadmin/crosswalk/build/lehrerheft.pdf) (Entwicklerversion)
+
+
+### Druck
 Wir lassen unser Arbeitsheft als gebundene Broschüre mit Drahtheftung im A4-Format bei der Firma wir-machen-druck in Backnang drucken. Die Produktionskosten liegen bei einem Druck von 20 Exemplaren zwischen 8 und 10 Euro pro Exemplar.
 
 
