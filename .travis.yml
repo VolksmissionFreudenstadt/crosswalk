@@ -4,7 +4,7 @@ language: php
 before_install:
 - sudo add-apt-repository -y ppa:scribus/ppa
 - sudo apt-get -qq update
-- sudo apt-get install -y xvfb scribus-ng
+- sudo apt-get install -y xvfb scribus-ng sshpass
 before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
