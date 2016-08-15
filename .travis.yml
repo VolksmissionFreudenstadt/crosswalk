@@ -1,7 +1,11 @@
 sudo: required
 dist: trusty
 language: php
+addons:
+  ssh_known_hosts: vmfds.de
 before_install:
+- openssl aes-256-cbc -K $encrypted_3d8c2e2fdcda_key -iv $encrypted_3d8c2e2fdcda_iv
+  -in deploy_rsa.enc -out .travis/deploy_rsa -d
 - sudo add-apt-repository -y ppa:scribus/ppa
 - sudo apt-get -qq update
 - sudo apt-get install -y xvfb scribus-ng sshpass rsync
@@ -10,7 +14,8 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 - sleep 3
 - export TRAVIS_DATE=$(date -u +"%d.%m.%Y %M:%M%S")
-- sed -i "s/###VERSION###/$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER ($TRAVIS_COMMIT) vom $TRAVIS_DATE/g" Heft.sla
+- sed -i "s/###VERSION###/$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER ($TRAVIS_COMMIT)
+  vom $TRAVIS_DATE/g" Heft.sla
 script:
 - sudo cp -R Grafik/Schriftarten /usr/share/fonts/truetype
 - sudo fc-cache -f -v
@@ -19,9 +24,9 @@ script:
 - scribus-ng -g -py .travis/schuelerheft.py -pa verbose  -- Heft.sla
 - mv Heft.pdf Schuelerheft-$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER.pdf
 after_success:
-- echo -n $SSHKEY > ~/.ssh/id_rsa
-- chmod 600 ~/.ssh/id_rsa
+- eval "$(ssh-agent -s)"
+- chmod 600 .travis/deploy_rsa
+- ssh-add .travis/deploy_rsa
 - ssh-keyscan $SSHHOST >> ~/.ssh/known_hosts
-- travis_wait 30 rsync -avz -e "ssh" --progress *.pdf $SSHUSER@$SSHHOST:/home/$SSHUSER/crosswalk/build/
-- sshpass -p $SSHPASS ssh -v $SSHUSER@$SSHHOST:/home/$SSHUSER/crosswalk/build/deploy.sh
-
+- rsync -avz -e "ssh" --progress *.pdf $SSHUSER@$SSHHOST:/home/$SSHUSER/crosswalk/build/
+- ssh -v $SSHUSER@$SSHHOST:/home/$SSHUSER/crosswalk/build/deploy.sh
