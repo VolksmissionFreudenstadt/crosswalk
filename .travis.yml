@@ -14,6 +14,7 @@ before_script:
 - sleep 3
 - export TRAVIS_DATE=$(date -u +"%d.%m.%Y, %H:%M Uhr")
 - sed -i "s/###VERSION###/$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER vom $TRAVIS_DATE/g" Heft.sla
+- sed -i "s/###DEV_VERSION###/$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER vom $TRAVIS_DATE/g" Heft.sla
 script:
 - sudo cp -R Grafik/Schriftarten /usr/share/fonts/truetype
 - sudo fc-cache -f -v
