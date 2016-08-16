@@ -26,3 +26,6 @@ after_success:
 - ssh-keyscan $SSHHOST >> ~/.ssh/known_hosts
 - sshpass -p $SSHPASS rsync -avz -e "ssh" --progress *.pdf $SSHUSER@$SSHHOST:/home/$SSHUSER/crosswalk/build/
 - sshpass -p $SSHPASS ssh $SSHUSER@$SSHHOST '~/crosswalk/build/deploy.sh' 
+notifications:
+  slack: crosswalk-material:JFrq9PxxfmJmKv9I1mMvrSFz
+
