@@ -2,6 +2,8 @@
 
 ## v2.0.0 (unveröffentlicht)
 
+[Komplette Übersicht aller Änderungen](https://github.com/VolksmissionFreudenstadt/crosswalk/compare/release-1.1.0...develop)
+
 Im Sommer 2016 findet eine erste, umfassende inhaltliche Revision des CrossWalk-Hefts statt. Dabei wurden neue Seiten hinzugefügt, bestehende Inhalte neu angeordnet, ergänzt und revidiert. Die Struktur der Lektionen lehnt sich nun stärker am Format des *Apostolikums* an, das auch in der neuen Lektion 1.2 vorgestellt wird.
 
 Ein Ziel der Revision war, neben der sinnvollen Ergänzung bisher zu kurz gekommener Inhalte, auch eine Öffnung für die Erkenntnisse der modernen Bibelwissenschaft an den Stellen, wo dies altersgerecht und inhaltlich notwendig erscheint.
@@ -25,7 +27,7 @@ Neu sind nun folgende Seiten, die sich an der Auszeichnung von CrossWalk als "Gl
 
 * Layout verändert, um die Bedeutung von Jesus Christus als zentrale Offenbarung Gottes hervorzuheben.
 * "Propheten" als Quelle entfernt (diese sind bereits im Punkt "Bibel" enthalten)
-* [LITB](../wiki/LITB) entfernt
+* [LITB](../../wiki/LITB) entfernt
 
 #### 2.3 Wer ist Gott? (Attribute)
 
@@ -124,7 +126,7 @@ Die Lektion zur "Bibel" wurde nach hinten verschoben, um den sekundären Stellen
 * Abschnitt zur synoptischen Quellenlage hinzugefügt
 
 #### 4.8 Teil 2: Das Neue Testament (Apostelgeschichte)
-* [LITB](../wiki/LITB) hinzugefügt
+* [LITB](../../wiki/LITB) hinzugefügt
 * Karte der Missionsreisen durch neue Karte zum Selbstzeichnen ersetzt
 
 #### 4.9 Teil 2: Das Neue Testament (Noch mehr Briefe)
@@ -193,7 +195,7 @@ In der Gemeindelektion wurden die 3 spezifisch auf die Volksmission Freudenstadt
 
 #### 8.4 Wie rede ich mit Gott?
 * Seitenüberschrift in "One-hour prayer challenge" geändert
-* [LITB](../wiki/LITB) eingefügt
+* [LITB](../../wiki/LITB) eingefügt
 * Instruktionen eingefügt
 * Abschnitt "ABBA" entfernt
 
@@ -209,7 +211,7 @@ In der Gemeindelektion wurden die 3 spezifisch auf die Volksmission Freudenstadt
 * Neue Seite zum Gericht eingefügt
 
 #### 10.4 Hölle
-* Seite neu gestalten ([#31](../issues/31))
+* Seite neu gestalten ([#31](../../issues/31))
 
 ### [Früher: 10 Engel und böse Mächte]
 Die bisherige Lektion 10 wurde entfernt. Seite 10.2 ("Die Gegenseite") findet sich neu als 5.3 ("Das Böse") im Heft.
@@ -224,7 +226,7 @@ Die bisherige Lektion 13 wurde entfernt. Seite 13.1 ("Der Versuchung widerstehen
 ### 13 Evangelisation & Mission
 #### 13.1 Weitersagen
 * "Glauben wir nicht alle an den selben Gott?" ersetzt durch "Haben nicht alle Religionen irgendwie recht?"
-* [LITB](../wiki/LITB) zu Johannes 14,6 eingefügt
+* [LITB](../../wiki/LITB) zu Johannes 14,6 eingefügt
 * Tabelle entfernt
 * Text zu Wahrheit und zur Exklusivität Jesu Christi eingefügt
 
