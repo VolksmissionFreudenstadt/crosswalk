@@ -2,7 +2,7 @@ CrossWalk
 =========
 Arbeitsheft und Material für CrossWalk
 
-CrossWalk ist ein Projekt der [Volksmission Freudenstadt](http://www.volksmission-freudenstadt.de/)
+CrossWalk ist ein Projekt der [Volksmission Freudenstadt](http://www.volksmission-freudenstadt.de/)  
 Autor: [Pastor Christoph Fischer](http://christoph-fischer.org), christoph.fischer@volksmission.de.      
 
 
@@ -24,7 +24,7 @@ Alle benötigten Schriftarten werden im Ordner "[Schriftarten](Grafik/Schriftart
 * *Stardos Stencil* von Vernon Adams, verfügbar unter der SIL Open Font License.
 
 ## Das Heft herunterladen und bearbeiten
-Das Heft mit seinen Quelldateien lässt sich mit Git ganz einfach in der jeweils aktuellen Version von Assembla herunterladen: 
+Das Heft mit seinen Quelldateien lässt sich mit Git ganz einfach in der jeweils aktuellen Version von GitHub herunterladen: 
 
  * Voraussetzungen (Git) installieren. Unter Ubuntu geht das wie folgt:   
 `sudo apt-get install git`
@@ -51,11 +51,23 @@ Die aktuellen PDFs der jeweils letzten Entwicklerversion können hier herunterge
  * [Lehrerheft](http://www.volksmission-freudenstadt.de/fileadmin/crosswalk/build/lehrerheft.pdf) (Entwicklerversion)
 
 
+### Seiten hinzufügen/entfernen
+Vermutlich willst du die Seiten entfernen, die sich auf die Volksmission Freudenstadt beziehen (7.6-7.8) entfernen oder durch eigenes Material ersetzen. Dadurch ändert sich
+dann allerdings wahrscheinlich die Reihenfolge der linken/rechten Seiten. Wenn du auf deinem Rechner [PHP](http://www.php.net) installiert hast, dann geht das ganz einfach:
+
+1. Schließe das Dokument in Scribus.
+2. Öffne eine Eingabeaufforderung oder ein Terminalfenster in deinem crosswalk-Verzeichnis und gib die folgenden Befehle ein:  
+
+    cd Tools
+    php MasterPages.php fix
+  
+Das Skript passt automatisch die Links-Rechts-Verteilung aller Seiten an. Vor dem Druck in der Druckerei musst du nun nur noch sicherstellen, dass dein Dokument eine gerade Anzahl von Seiten hat. Dazu musst du evtl. am Ende eine Leerseite einfügen oder löschen. 
+
 ### Druck
 Wir lassen unser Arbeitsheft als gebundene Broschüre mit Drahtheftung im A4-Format bei der Firma wir-machen-druck in Backnang drucken. Die Produktionskosten liegen bei einem Druck von 20 Exemplaren zwischen 8 und 10 Euro pro Exemplar.
 
 
 
 ## Lizenz
-Alle hier bereitgestellten Inhalte werden auf der Basis der [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International-Lizenz](https://creativecommons.org/licenses/by-sa/4.0/legalcode#languages) zur Verfügung gestellt. Bilder haben je nach Quelle eine eigene Lizenz. Ausgenommen sind Logos der Volksmission Freudenstadt und ihrer Arbeitsbereiche. Für diese gilt: Alle Rechte vorbehalten.
+Alle hier bereitgestellten Inhalte werden auf der Basis der [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International-Lizenz](https://creativecommons.org/licenses/by-sa/4.0/legalcode#languages) zur Verfügung gestellt. Bilder haben je nach Quelle eine eigene Lizenz, die in den Bildnachweisen am Ende des Hefts und in der Datei [Bilderliste.csv](Dokumentation/Bilderliste.csv) dokumentiert ist. Ausgenommen sind Logos der Volksmission Freudenstadt und ihrer Arbeitsbereiche. Für diese gilt: Alle Rechte vorbehalten.
 
