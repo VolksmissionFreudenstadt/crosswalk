@@ -13,15 +13,16 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 - sleep 3
 - export TRAVIS_DATE=$(date -u +"%d.%m.%Y, %H:%M Uhr")
-- sed -i "s/###VERSION###/$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER vom $TRAVIS_DATE/g" Heft.sla
-- sed -i "s/###DEV_VERSION###/$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER vom $TRAVIS_DATE/g" Heft.sla
+- export BASE_VERSION=$(cat .travis/BASE_VERSION)
+- sed -i "s/###VERSION###/$TRAVIS_BRANCH-$BASE_VERSION-$TRAVIS_BUILD_NUMBER vom $TRAVIS_DATE/g" Heft.sla
+- sed -i "s/###DEV_VERSION###/$TRAVIS_BRANCH-$BASE_VERSION-$TRAVIS_BUILD_NUMBER vom $TRAVIS_DATE/g" Heft.sla
 script:
 - sudo cp -R Grafik/Schriftarten /usr/share/fonts/truetype
 - sudo fc-cache -f -v
 - scribus-ng -g -py .travis/lehrerheft.py -pa verbose  -- Heft.sla
-- mv Heft.pdf Lehrerheft-$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER.pdf
+- mv Heft.pdf Lehrerheft-$TRAVIS_BRANCH-$BASE_VERSION-$TRAVIS_BUILD_NUMBER.pdf
 - scribus-ng -g -py .travis/schuelerheft.py -pa verbose  -- Heft.sla
-- mv Heft.pdf Schuelerheft-$TRAVIS_BRANCH-2.0.$TRAVIS_BUILD_NUMBER.pdf
+- mv Heft.pdf Schuelerheft-$TRAVIS_BRANCH-$BASE_VERSION-$TRAVIS_BUILD_NUMBER.pdf
 after_success:
 - eval "$(ssh-agent -s)"
 - ssh-keyscan $SSHHOST >> ~/.ssh/known_hosts

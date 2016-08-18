@@ -60,7 +60,6 @@ Die Inhalte, die sich auf die Themen "Bekehrung" und "Wiedergeburt" bezogen, wur
 
 #### 3.2 Unterwegs mit Jesus
 * Seite zum historischen Jesus neu angelegt.
-* Zeitstrahl von früherer Einstiegsseite 4.1 übernommen
 
 #### 3.3 Was Jesus sagt
 * Seite zur Predigt Jesu neu angelegt
