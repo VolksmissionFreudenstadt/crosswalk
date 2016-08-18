@@ -14,12 +14,12 @@ before_script:
 - sleep 3
 - export TRAVIS_DATE=$(date -u +"%d.%m.%Y, %H:%M Uhr")
 - export BASE_VERSION=$(cat .travis/BASE_VERSION)
-- if [[ "$TRAVIS_BRANCH" == "master" ]]; then export $VERSION_STRING="$BASE_VERSION (build $TRAVIS_BUILD)" ; fi
-- if [[ "$TRAVIS_BRANCH" == "master" ]]; then export $FILE_VERSION="$BASE_VERSION-$TRAVIS_BUILD" ; fi
-- if [[ "$TRAVIS_BRANCH" == "master" ]]; then export $DEV_VERSION_STRING="" ; fi
-- if [[ "$TRAVIS_BRANCH" != "master" ]]; then export $VERSION_STRING="$BASE_VERSION-$TRAVIS_BRANCH (build $TRAVIS_BUILD vom $TRAVIS_DATE)" ; fi
-- if [[ "$TRAVIS_BRANCH" != "master" ]]; then export $FILE_VERSION="$TRAVIS_BRANCH-$BASE_VERSION-$TRAVIS_BUILD_NUMBER" ; fi
-- if [[ "$TRAVIS_BRANCH" != "master" ]]; then export $DEV_VERSION_STRING="$TRAVIS_BRANCH-$BASE_VERSION-$TRAVIS_BUILD_NUMBER vom $TRAVIS_DATE" ; fi
+- if [[ "$TRAVIS_BRANCH" == "master" ]]; then export VERSION_STRING="$BASE_VERSION (build $TRAVIS_BUILD)" ; fi
+- if [[ "$TRAVIS_BRANCH" == "master" ]]; then export FILE_VERSION="$BASE_VERSION-$TRAVIS_BUILD" ; fi
+- if [[ "$TRAVIS_BRANCH" == "master" ]]; then export DEV_VERSION_STRING="" ; fi
+- if [[ "$TRAVIS_BRANCH" != "master" ]]; then export VERSION_STRING="$BASE_VERSION-$TRAVIS_BRANCH (build $TRAVIS_BUILD vom $TRAVIS_DATE)" ; fi
+- if [[ "$TRAVIS_BRANCH" != "master" ]]; then export FILE_VERSION="$TRAVIS_BRANCH-$BASE_VERSION-$TRAVIS_BUILD_NUMBER" ; fi
+- if [[ "$TRAVIS_BRANCH" != "master" ]]; then export DEV_VERSION_STRING="$TRAVIS_BRANCH-$BASE_VERSION-$TRAVIS_BUILD_NUMBER vom $TRAVIS_DATE" ; fi
 script:
 - sudo cp -R Grafik/Schriftarten /usr/share/fonts/truetype
 - sudo fc-cache -f -v
