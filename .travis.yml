@@ -14,7 +14,6 @@ before_script:
 - sleep 3
 - chmod +x $TRAVIS_BUILD_DIR/.travis/versions.sh
 - bash $TRAVIS_BUILD_DIR/.travis/versions.sh
-- echo "File version: $FILE_VERSION"
 script:
 - sudo cp -R Grafik/Schriftarten /usr/share/fonts/truetype
 - sudo fc-cache -f -v
