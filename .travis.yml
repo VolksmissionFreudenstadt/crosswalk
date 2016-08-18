@@ -20,6 +20,8 @@ before_script:
 - if [[ "$TRAVIS_BRANCH" != "master" ]]; then export VERSION_STRING="$BASE_VERSION-$TRAVIS_BRANCH (build $TRAVIS_BUILD vom $TRAVIS_DATE)" ; fi
 - if [[ "$TRAVIS_BRANCH" != "master" ]]; then export FILE_VERSION="$TRAVIS_BRANCH-$BASE_VERSION-$TRAVIS_BUILD_NUMBER" ; fi
 - if [[ "$TRAVIS_BRANCH" != "master" ]]; then export DEV_VERSION_STRING="$TRAVIS_BRANCH-$BASE_VERSION-$TRAVIS_BUILD_NUMBER vom $TRAVIS_DATE" ; fi
+- sed -i "s/###VERSION###/$VERSION_STRING vom $TRAVIS_DATE/g" Heft.sla
+- sed -i "s/###DEV_VERSION###/$DEV_VERSION_STRING/g" Heft.sla
 script:
 - sudo cp -R Grafik/Schriftarten /usr/share/fonts/truetype
 - sudo fc-cache -f -v
