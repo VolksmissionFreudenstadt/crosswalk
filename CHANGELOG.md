@@ -160,7 +160,10 @@ In dieser neuen Lektion werden die Themen Sünde, Bekehrung, Wiedergeburt und Na
 #### 5.7 Jesus nachfolgen
 * Neue Seite zum Thema "Jüngerschaft" eingefügt
 
-#### 5.8 Der Versuchung widerstehen
+#### 5.8 Nachfolge konkret: Geld
+* Ehemalige Seite 12.1 hierher verschoben und Lektion 12 entfernt
+
+#### 5.9 Nachfolge konkret: Versuchung
 * Ehemalige Seite 13.1 hierher verschoben und Lektion 13 entfernt
 
 ### 6 Der Heilige Geist
@@ -217,19 +220,20 @@ Die bisherige Lektion 10 wurde entfernt. Seite 10.2 ("Die Gegenseite") findet si
 
 ### 11 Beziehungen
 
-### 12 Geld
+### [Früher: 12 Geld]
+Die bisherige Lektion 12 wurde entfernt. Seite 12.1 ("Money, money, money") findet sich neu als 5.8 ("Nachfolge konkret: Geld) im Heft.
 
 ### [Früher: 13 Versuchung]
-Die bisherige Lektion 13 wurde entfernt. Seite 13.1 ("Der Versuchung widerstehen") findet sich neu als 5.8 im Heft.
+Die bisherige Lektion 13 wurde entfernt. Seite 13.1 ("Der Versuchung widerstehen") findet sich neu als 5.9 ("Nachfolge konkret: Versuchung") im Heft.
 
-### 13 Evangelisation & Mission
-#### 13.1 Weitersagen
+### 12 Evangelisation & Mission
+#### 12.1 Weitersagen
 * "Glauben wir nicht alle an den selben Gott?" ersetzt durch "Haben nicht alle Religionen irgendwie recht?"
 * [LITB](../../wiki/LITB) zu Johannes 14,6 eingefügt
 * Tabelle entfernt
 * Text zu Wahrheit und zur Exklusivität Jesu Christi eingefügt
 
-#### 13.2 Was sag ich bloss?
+#### 12.2 Was sag ich bloss?
 * Frühere Seite 14.2 ("Wie sag ich's bloß") entfernt
 * Geistliche Gesetze in "The Four" umbenannt
 * Symbole und Formulierungen von Campus für Christus (thefour.com) übernommen
