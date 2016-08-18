@@ -12,15 +12,15 @@ before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 - sleep 3
-- chmod +x ./travis/versions.sh
-- .travis/versions.sh
+- chmod +x $TRAVIS_BUILD_DIR/.travis/versions.sh
+- $TRAVIS_BUILD_DIR/.travis/versions.sh
 script:
 - sudo cp -R Grafik/Schriftarten /usr/share/fonts/truetype
 - sudo fc-cache -f -v
 - scribus-ng -g -py .travis/lehrerheft.py -pa verbose  -- Heft.sla
-- mv Heft.pdf Lehrerheft-$TRAVIS_BRANCH-$BASE_VERSION-$TRAVIS_BUILD_NUMBER.pdf
+- mv Heft.pdf Lehrerheft-$FILE_VERSION.pdf
 - scribus-ng -g -py .travis/schuelerheft.py -pa verbose  -- Heft.sla
-- mv Heft.pdf Schuelerheft-$TRAVIS_BRANCH-$BASE_VERSION-$TRAVIS_BUILD_NUMBER.pdf
+- mv Heft.pdf Schuelerheft-$FILE_VERSION.pdf
 after_success:
 - eval "$(ssh-agent -s)"
 - ssh-keyscan $SSHHOST >> ~/.ssh/known_hosts
