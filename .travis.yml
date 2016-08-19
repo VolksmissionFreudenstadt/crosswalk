@@ -4,6 +4,7 @@ language: php
 addons:
   ssh_known_hosts: vmfds.de
 before_install:
+- export CHANGED_FILES=($(git diff --name-only $TRAVIS_COMMIT_RANGE))
 - echo "$CHANGED_FILES"
 - if [[ "$CHANGED_FILES" != *"Heft.sla"* ]]; then exit 1; else exit 0; fi
 - sudo add-apt-repository -y ppa:scribus/ppa
@@ -16,7 +17,6 @@ before_script:
 - sleep 3
 - export TRAVIS_DATE=$(date -u +"%d.%m.%Y, %H:%M Uhr")
 - export BASE_VERSION=$(cat .travis/BASE_VERSION)
-- export CHANGED_FILES=($(git diff --name-only $TRAVIS_COMMIT_RANGE))
 - if [[ "$TRAVIS_BRANCH" == "master" ]]; then export VERSION_STRING="$BASE_VERSION (build $TRAVIS_BUILD)" ; fi
 - if [[ "$TRAVIS_BRANCH" == "master" ]]; then export FILE_VERSION="$BASE_VERSION-$TRAVIS_BUILD" ; fi
 - if [[ "$TRAVIS_BRANCH" == "master" ]]; then export DEV_VERSION_STRING="" ; fi
