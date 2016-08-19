@@ -175,16 +175,17 @@ Die Lektion über den Heiligen Geist wurde vor das Thema "Gemeinde" verschoben, 
 ### 7 Gemeinde
 Die Lektion über die Gemeinde wurde nach das Thema "Heiliger Geist" verschoben, um der Struktur der *Apostolikums* eher Rechnung zu tragen.
 
-In der Gemeindelektion wurden die 3 spezifisch auf die Volksmission Freudenstadt bezogenen Seiten (früher 5.1-3) an das Ende der Lektion verschoben. Somit können sie einfacher aus dem Dokument entfernt werden, ohne dass sich die Nummerierung dadurch ändert.
+In der Gemeindelektion wurden die 3 spezifisch auf die Volksmission Freudenstadt bezogenen Seiten (früher 5.1, 5.3) an das Ende der Lektion verschoben. Somit können sie einfacher aus dem Dokument entfernt werden, ohne dass sich die Nummerierung dadurch ändert.
 
 #### 7.1 Was ist Gemeinde?
 * Neue Seite zur Natur der Gemeinde eingefügt
 
 #### 7.2 Was ist Gemeinde?
-* Neue Seite zur Natur der Gemeinde eingefügt
+* Frühere Seite 5.2 hier eingefügt
+* [LITB](../../wiki/LITB) und persönliche Fragen hinzugefügt
 
-#### 7.6-7.8 Volksmission Freudenstadt
-* An das Ende der Lektion verschoben
+#### 7.6-7.7 Volksmission Freudenstadt
+* Frühere Seiten 5.1, 5.3 an das Ende der Lektion verschoben.
 
 ### 8 Gebet
 

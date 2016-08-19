@@ -52,8 +52,10 @@ Die aktuellen PDFs der jeweils letzten Entwicklerversion können hier herunterge
 
 
 ### Seiten hinzufügen/entfernen
-Vermutlich willst du die Seiten entfernen, die sich auf die Volksmission Freudenstadt beziehen (7.6-7.8) entfernen oder durch eigenes Material ersetzen. Dadurch ändert sich
-dann allerdings wahrscheinlich die Reihenfolge der linken/rechten Seiten. Wenn du auf deinem Rechner [PHP](http://www.php.net) installiert hast, dann geht das ganz einfach:
+Vermutlich willst du zumindest die Seiten, die sich auf die Volksmission Freudenstadt beziehen (7.6-7.7) entfernen oder durch eigenes Material ersetzen. 
+
+Wenn sich durch das Einfügen oder Löschen von Seiten die Verteilung der linken und rechten Seiten ändert, musst du die Musterseiten ("Normal rechts" und "Normal links") neu zuweisen.
+Wenn du auf deinem Rechner [PHP](http://www.php.net) installiert hast, dann geht das ganz einfach:
 
 1. Schließe das Dokument in Scribus.
 2. Öffne eine Eingabeaufforderung oder ein Terminalfenster in deinem crosswalk-Verzeichnis und gib die folgenden Befehle ein:  
