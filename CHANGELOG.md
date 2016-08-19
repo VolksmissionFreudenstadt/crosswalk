@@ -261,7 +261,7 @@ Die bisherige Lektion 13 wurde entfernt. Seite 13.1 ("Der Versuchung widerstehen
 * Auflistung aller verwendeten Schriftarten
 
 #### Build
-* Automatische PDF-Builds und Deployment via Travis CI
+* Automatische PDF-Builds und Deployment via Travis CI (nur wenn [Heft.sla](../../Heft.sla) verändert wurde)
 
 #### Repository
 * Sinnvolle Neustrukturierung der gewachsenen Ordnerhierarchie
