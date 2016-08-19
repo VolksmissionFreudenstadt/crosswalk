@@ -14,16 +14,16 @@ class CommandLine
     {
         global $argv;
         if (count($argv) < (count($params) + 2)) {
-            out('FEHLER: Fehlende Angaben.');
-            out('Aufruf: ' . $argv[0] . ' ' . $argv[1], false);
+            Console::write('FEHLER: Fehlende Angaben.');
+            Console::write('Aufruf: ' . $argv[0] . ' ' . $argv[1], false);
             foreach ($params as $param => $paramHelp) {
-                out(' <' . $param . '>', false);
+                Console::write(' <' . $param . '>', false);
             }
-            out('');
-            out('');
-            out('Parameter:');
+            Console::write('');
+            Console::write('');
+            Console::write('Parameter:');
             foreach ($params as $param => $paramHelp) {
-                out(str_pad('<' . $param . '>', 20, ' ') . $paramHelp);
+                Console::write(str_pad('<' . $param . '>', 20, ' ') . $paramHelp);
             }
             die();
         } else {
