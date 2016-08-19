@@ -40,5 +40,15 @@ Dieser Befehl setzt die Musterseiten "Normal links" und "Normal rechts" korrekt 
 
 `php MasterPages.php fix`
 
-*Achtung*: Dieser Befehl schreibt die [Heft.sla](../Heft.sla) neu. Diese muss daher in Scribus geschlossen sein, sonst wird die Schreiboperation fehlschlagen.
+*Achtung*: Dieser Befehl schreibt die [Heft.sla](../Heft.sla) neu. 
+
+### Musterseiten korrigieren
+Dieser Befehl setzt alle Musterseiten auf "Normal rechts", um den Druck als einzelne Arbeitsblätter zu ermöglichen. Außerdem schiebt das Skript die Textboxen mit dem Seitentitel an die richtige Stelle:
+
+`php MasterPages.php arbeitsblatt`
+
+*Achtung*: Dieser Befehl schreibt die [Heft.sla](../Heft.sla) neu. 
+
+
+
 

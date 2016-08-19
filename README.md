@@ -65,10 +65,20 @@ Wenn du auf deinem Rechner [PHP](http://www.php.net) installiert hast, dann geht
   
 Das Skript passt automatisch die Links-Rechts-Verteilung aller Seiten an. Vor dem Druck in der Druckerei musst du nun nur noch sicherstellen, dass dein Dokument eine gerade Anzahl von Seiten hat. Dazu musst du evtl. am Ende eine Leerseite einfügen oder löschen. 
 
+
 ### Druck
 Wir lassen unser Arbeitsheft als gebundene Broschüre mit Drahtheftung im A4-Format bei der Firma wir-machen-druck in Backnang drucken. Die Produktionskosten liegen bei einem Druck von 20 Exemplaren zwischen 8 und 10 Euro pro Exemplar.
 
+### Einzelne Arbeitsblätter
+Wenn du das Material nicht als Heft, sondern als einzelne Arbeitsblätter selbst ausdrucken möchtest, empfiehlt es sich, alle Musterseiten auf "Normal rechts" zu setzen, da sich ja keine abwechselnd rechten/linken Seiten ergeben. Wenn du auf deinem Rechner [PHP](http://www.php.net) installiert hast, dann geht das ganz einfach:
 
+1. Schließe das Dokument in Scribus.
+2. Öffne eine Eingabeaufforderung oder ein Terminalfenster in deinem crosswalk-Verzeichnis und gib die folgenden Befehle ein:  
+
+    cd Tools
+    php MasterPages.php arbeitsblatt
+  
+Das Skript setzt dann automatisch alle Seiten auf "Normal rechts".
 
 ## Lizenz
 Alle hier bereitgestellten Inhalte werden auf der Basis der [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International-Lizenz](https://creativecommons.org/licenses/by-sa/4.0/legalcode#languages) zur Verfügung gestellt. Bilder haben je nach Quelle eine eigene Lizenz, die in den Bildnachweisen am Ende des Hefts und in der Datei [Bilderliste.csv](Dokumentation/Bilderliste.csv) dokumentiert ist. Ausgenommen sind Logos der Volksmission Freudenstadt und ihrer Arbeitsbereiche. Für diese gilt: Alle Rechte vorbehalten.

@@ -14,6 +14,7 @@ class MasterPagesApp extends App
         'liste' => 'Alle verwendeten Musterseiten auflisten',
         'seiten' => 'Seiten mit Angabe der verwendeten Musterseite auflisten',
         'fix' => 'Musterseiten korrigieren',
+        'arbeitsblatt' => 'Alle Musterseiten zum Druck von einzelnen Arbeitsblättern auf "Normal rechts" setzen',
     ];
 
 
@@ -110,6 +111,39 @@ class MasterPagesApp extends App
         }
         $doc->asXML('../Heft.sla');
     }
+
+    public function cmdArbeitsblatt()
+    {
+        $doc = \VMFDS\Scribe\ScribusDocument::load('../Heft.sla');
+        $masterPages = $doc->getMasterPages();
+        $pageTitles = $doc->getPageTitles();
+        $num = $doc->getNumberOfPages();
+
+        foreach ($doc->DOCUMENT->PAGE as $page) {
+            $idx = (int)$page['NUM'];
+            $title = isset($pageTitles[$idx]) ? $pageTitles[$idx] : '';
+            $tmp = explode(' ', (string)$page['MNAM']);
+            if (($idx > 1) && ($idx < ($num - 2)) && ($tmp[0] == 'Normal')) {
+                $shouldBe = 'Normal rechts';
+                if ((string)$page['MNAM'] != $shouldBe) {
+                    Console::write('Ändere Musterseite für Seite #' . ($idx + 1) . ' (' . $title . ') von "' . (string)$page['MNAM'] . '" zu "' . $shouldBe . '"');
+                    $page['MNAM'] = $shouldBe;
+                    $titleBox = $doc->getTitleBox($idx);
+                    if (is_object($titleBox)) {
+                        $titleBox['XPOS'] = '737.795905511811';
+                        $titleBox['WIDTH'] = '384.082790084939';
+                        $titleBox['path'] = 'M0 0 L384.083 0 L384.083 20.9302 L0 20.9302 L0 0 Z';
+                        $titleBox['copath'] = 'M0 0 L384.083 0 L384.083 20.9302 L0 20.9302 L0 0 Z';
+                        $titleBox = $this->alignTitleBox($titleBox, 2);
+                        if (isset($titleBox['ALIGN'])) unset($titleBox['ALIGN']);
+                        if (isset($titleBox->StoryText->DefaultStyle['ALIGN'])) unset($titleBox->StoryText->DefaultStyle['ALIGN']);
+                    }
+                }
+            }
+        }
+        $doc->asXML('../Heft.sla');
+    }
+
 
 }
 

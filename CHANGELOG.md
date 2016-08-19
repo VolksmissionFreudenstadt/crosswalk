@@ -259,6 +259,7 @@ Die bisherige Lektion 13 wurde entfernt. Seite 13.1 ("Der Versuchung widerstehen
 #### Tools
 * Automatische Erzeugung von Bildquellenverzeichnissen
 * Automatische Neuanordnung von Musterseiten (rechts, links)
+* Automatische Anordnung aller Seiten auf "Normal rechts" für den Druck von Einzelarbeitsblättern
 * Auflistung aller verwendeten Schriftarten
 
 #### Build
