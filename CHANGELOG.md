@@ -1,10 +1,10 @@
 # Übersicht der Änderungen
 
-## v2.0.0 (unveröffentlicht)
+## v2.0.0
 
 [Komplette Übersicht aller Änderungen](https://github.com/VolksmissionFreudenstadt/crosswalk/compare/release-1.1.0...develop)
 
-Im Sommer 2016 findet eine erste, umfassende inhaltliche Revision des CrossWalk-Hefts statt. Dabei wurden neue Seiten hinzugefügt, bestehende Inhalte neu angeordnet, ergänzt und revidiert. Die Struktur der Lektionen lehnt sich nun stärker am Format des *Apostolikums* an, das auch in der neuen Lektion 1.2 vorgestellt wird.
+Im Sommer 2016 fand eine erste, umfassende inhaltliche Revision des CrossWalk-Hefts statt. Dabei wurden neue Seiten hinzugefügt, bestehende Inhalte neu angeordnet, ergänzt und revidiert. Die Struktur der Lektionen lehnt sich nun stärker am Format des *Apostolikums* an, das auch in der neuen Lektion 1.2 vorgestellt wird.
 
 Ein Ziel der Revision war, neben der sinnvollen Ergänzung bisher zu kurz gekommener Inhalte, auch eine Öffnung für die Erkenntnisse der modernen Bibelwissenschaft an den Stellen, wo dies altersgerecht und inhaltlich notwendig erscheint.
 

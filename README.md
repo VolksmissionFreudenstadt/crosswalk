@@ -40,7 +40,7 @@ Das Scribus-Dokument [Heft.sla](Heft.sla) enthällt sowohl das Schülerheft als 
  * Bei der Ebene "Lösungen" die Sichtbarkeit bzw. Druckbarkeit je nach Wunsch an- oder ausschalten. Die Druckbarkeit wirkt sich auch auf den PDF-Export aus.
 
 ### Entwicklerversionen
-CrossWalk wird aktuell weiterentwickelt. Dazu verwenden wir den [develop](/tree/develop)-Zweig. Jede dort erfasste Änderung wird von [Travis CI](https://travis-ci.org/VolksmissionFreudenstadt/crosswalk/) automatisch geladen und die zwei PDF-Dateien für Schüler- und Lehrerheft werden innerhalb von ca. 10 Minuten bereitgestellt. 
+CrossWalk wird immer wieder weiterentwickelt. Dazu verwenden wir den [develop](/tree/develop)-Zweig. Jede dort erfasste Änderung wird von [Travis CI](https://travis-ci.org/VolksmissionFreudenstadt/crosswalk/) automatisch geladen und die zwei PDF-Dateien für Schüler- und Lehrerheft werden innerhalb von ca. 10 Minuten bereitgestellt. 
 
 Den aktuellen Build-Status siehst du hier:
 ![Travis CI Build Status](https://travis-ci.org/VolksmissionFreudenstadt/crosswalk.svg)
