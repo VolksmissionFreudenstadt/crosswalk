@@ -13,6 +13,9 @@ Lektion 1 wurde komplett neu gestaltet. Das bisherige Blatt zu  "Gottes Plan mit
 
 Neu sind nun folgende Seiten, die sich an der Auszeichnung von CrossWalk als "Glaubens- und Lebensunterricht" orientieren.
 
+#### Umschlag innen
+* Feld für Name des Besitzers eingefügt
+
 #### 1.1 Leben (und sterben)
 
 * Seite neu angelegt. 
@@ -210,11 +213,17 @@ In der Gemeindelektion wurden die 3 spezifisch auf die Volksmission Freudenstadt
 * Zeilenabstände unter "Der Plan" vergrößert
 * Hinweistext eingefügt
 
-#### 10.2 Das Gericht
+#### 10.2 Jesus kommt wieder
+* Neue Seite zur Wiederkunft Jesu eingefügt
+
+#### 10.3 Das Gericht
 * Neue Seite zum Gericht eingefügt
 
 #### 10.4 Hölle
-* Seite neu gestalten ([#31](../../issues/31))
+* Seite neu gestaltet ([#31](../../issues/31))
+* Bilder zur Hölle und Infobox entfernt
+* Erklärungen zur Scheol eingefügt
+* Erklärungen zur Gehenna eingefügt
 
 ### [Früher: 10 Engel und böse Mächte]
 Die bisherige Lektion 10 wurde entfernt. Seite 10.2 ("Die Gegenseite") findet sich neu als 5.3 ("Das Böse") im Heft.
